@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo</title>
+</head>
+<body>
+    <script>
+        // const catalogo = [
+        //     { id: 1, nombre: 'Prod-1', precio: 12 },
+        //     { id: 2, nombre: 'Prod-2', precio: 15 }
+        // ];
+
+        const pedido = [];
+
+        let producto = '';
+
+        const agregarProducto = (producto) => {
+            switch(producto) {
+                case 'Prod-1': 
+                    pedido.push({ id: 1, nombre: 'Prod-1', precio: 12 });
+                    break;
+                case 'Prod-2': 
+                    pedido.push({ id: 2, nombre: 'Prod-2', precio: 15 });
+                    break;
+            }
+        }
+
+        const calcularTotal = () => {
+            let total = 0;
+
+            pedido.forEach( item => total += item.precio );
+
+            return total;
+        }
+
+        do {
+            producto = prompt('Ingrese producto: ');
+
+            agregarProducto(producto);
+        } while( producto != 'Salir' );
+
+        console.log(calcularTotal());
+    </script>
+</body>
+</html>
